@@ -39,23 +39,13 @@
     h1 {
       color: #ff4f8b;
       font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      font-size: 16px;
-      margin-bottom: 15px;
-      text-align: center;
+      margin-bottom: 20px;
     }
 
     .buttons {
       display: flex;
       justify-content: space-around;
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
     button {
@@ -82,10 +72,7 @@
 
 <div class="card" id="card">
   <img src="https://i.imgur.com/3ZQ3Z6N.png" alt="Cute cat">
-
-  <h1 id="question">What’s your name? 💕</h1>
-
-  <input type="text" id="nameInput" placeholder="Enter your name">
+  <h1>Will you be my Valentine? 💘</h1>
 
   <div class="buttons">
     <button id="yes">Yes</button>
@@ -95,30 +82,26 @@
 
 <script>
   // 📱 MOBILE ONLY
-  if (window.innerWidth > 768) {
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (!isMobile) {
     document.body.innerHTML =
       "<h2 style='text-align:center;color:#ff4f8b'>Open this on your phone 💖</h2>";
   }
 
-  const yesBtn = document.getElementById("yes");
-  const noBtn = document.getElementById("no");
-  const nameInput = document.getElementById("nameInput");
   const card = document.getElementById("card");
 
   // YES CLICK
-  yesBtn.addEventListener("click", () => {
-    const name = nameInput.value.trim() || "Cutie";
-
+  document.getElementById("yes").addEventListener("click", () => {
     card.innerHTML = `
       <h1>YAY 💖</h1>
-      <p>${name}, you’re officially my Valentine 🥰</p>
-      <p>Best choice ever 💘</p>
+      <p>You just made someone very happy 🥰</p>
+      <p>Happy Valentine’s 💘</p>
     `;
   });
 
   // NO CLICK → redirect
-  noBtn.addEventListener("click", () => {
-    window.location.href = "https://youtu.be/dQw4w9WgXcQ"; // change if you want 😈
+  document.getElementById("no").addEventListener("click", () => {
+    window.location.href = "https://www.youtube.com/shorts/qdbbJzXCHpo";
   });
 </script>
 
